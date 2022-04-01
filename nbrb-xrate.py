@@ -14,7 +14,8 @@ class CurrencyConv:
         self.xrates = {}
         for entry in self.json_data:
             curname = entry['Cur_Abbreviation']
-            numeric = [entry['Cur_Scale'], entry['Cur_OfficialRate']]  # temporary list for currency scale and rate
+            # temporary list for currency scale and rate
+            numeric = [entry['Cur_Scale'], entry['Cur_OfficialRate']]
             self.xrates[curname] = numeric
 
         self.currencies = sorted(list(self.xrates.keys()))
@@ -62,7 +63,7 @@ converter = CurrencyConv()
 def get_help():
     print(f'Usage: {argv[0]} -r | -c <options>')
     print(
-        f'\t-r [currency_codes]: Print exchange rates for specified currencies'
+        '\t-r [currency_codes]: Print exchange rates for specified currencies'
     )
     print('\t-c [amount] [input_currency] [resulting_currency]:', end=' ')
     print('Convert from BYN to foreign currency or vice versa.\n')
